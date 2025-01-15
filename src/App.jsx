@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import Header from './components/Header';
 import InputGroup from './components/InputGroup';
+import ResultsTable from './components/ResultsTable'
 function App() {
   // "alzo" questo stato nell'app component perchè l'userInput mi 
   // servirà nei calcoli per stampare gli eventuali risultati.
@@ -26,6 +27,7 @@ function App() {
     <>
       <Header/>
       <InputGroup inputHandle={inputHandle} userInput={userInput}/>
+      <ResultsTable userInput={userInput}/>
     </>
   )
 }
