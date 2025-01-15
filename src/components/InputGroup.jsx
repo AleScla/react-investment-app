@@ -4,13 +4,13 @@ export default function InputGroup({inputHandle, userInput}){
             <div className="input-group">
                 <div>
                     <label>Investimento iniziale</label>
-                    <input type="number" required 
+                    <input type="number" required min="1"
                     value={userInput.initialInvestment} 
                     onChange={(event)=> inputHandle('initialInvestment', event.target.value)} />
                 </div>
                 <div>
                     <label>Investimento annuale</label>
-                    <input type="number" required 
+                    <input type="number" required min="1"
                     value={userInput.annualInvestment} 
                     onChange={(event)=> inputHandle('annualInvestment', event.target.value)}/>
                 </div>
@@ -18,13 +18,13 @@ export default function InputGroup({inputHandle, userInput}){
             <div className="input-group">
                 <div>
                     <label>Profitto previsto percentuale</label>
-                    <input type="number" required  
+                    <input type="number" required min="1"
                     value={userInput.expectedReturn} 
                     onChange={(event)=> inputHandle('expectedReturn', event.target.value)}/>
                 </div>
                 <div>
                     <label>Durata</label>
-                    <input type="number" required min='1' 
+                    <input type="number" required min="1" 
                     value={userInput.duration} 
                     onChange={(event)=> inputHandle('duration', event.target.value)} />
                 </div>

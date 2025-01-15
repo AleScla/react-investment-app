@@ -11,13 +11,15 @@ function App() {
     expectedReturn: 8,
     duration: 5,
   })
+  let validation = userInput.duration > 0;
   function inputHandle(key, value){
     // il prevUserInput perchè in react è meglio non modificare direttamente
     // la variabile iniziale ma crearne una copia
     setUserInput(prevUserInput => {
       return {
         ...prevUserInput,
-        [key]: value, // sintassi di js per cambiare la singola coppia chiave/valore
+        [key]: +value, // sintassi di js per cambiare la singola coppia chiave/valore
+        //oltretutto, aggiungere "+" prima del valore, trasforma converte il valore da string a number
       }
       
     })
@@ -27,7 +29,7 @@ function App() {
     <>
       <Header/>
       <InputGroup inputHandle={inputHandle} userInput={userInput}/>
-      <ResultsTable userInput={userInput}/>
+      {validation ? <ResultsTable userInput={userInput}/> : <p className="center">Valore non valido, inserisci un valore superiore ad 1</p>}
     </>
   )
 }
